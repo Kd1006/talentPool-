@@ -1,15 +1,13 @@
 package com.kdTalents.TalentPool.repository;
 
 
-import com.kdTalents.TalentPool.entity.UserT;
+import com.kdTalents.TalentPool.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface UserTRepository extends JpaRepository <UserT, Long> {
-    Optional<UserT> findUserByUsername(String username);
-
-
+public interface UserRepository extends JpaRepository <User, Long> {
+    Optional<User> findUserByUsername(String username);
 }

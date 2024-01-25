@@ -1,26 +1,37 @@
-//package com.kdTalents.TalentPool.service;
-//
-//import com.kdTalents.TalentPool.repository.UserTRepository;
-//import org.springframework.security.core.userdetails.User;
-//import org.springframework.security.core.userdetails.UserDetails;
-//import org.springframework.security.core.userdetails.UserDetailsService;
-//import org.springframework.security.core.userdetails.UsernameNotFoundException;
-//import org.springframework.stereotype.Service;
-//
-//import java.util.Optional;
-//
-//@Service
-//public class UserServiceImp implements UserDetailsService {
-//    private final UserTRepository userRepository;
-//
-//    public UserServiceImp(UserTRepository userRepository) {
-//        this.userRepository = userRepository;
-//    }
-//
-//    @Override
-//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//        org.springframework.security.core.userdetails.User.UserBuilder builder = null;
-//        Optional<User> user
-//        return null;
-//    }
-//}
+package com.kdTalents.TalentPool.service;
+
+
+import com.kdTalents.TalentPool.entity.User;
+import com.kdTalents.TalentPool.repository.UserRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
+@Service
+
+public class UserServiceImp implements UserDetailsService {
+    private final UserRepository userRepository;
+
+    public UserServiceImp(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        org.springframework.security.core.userdetails.User.UserBuilder builder = null;
+        Optional<User> user = userRepository.findUserByUsername(username);
+        if (user.isPresent()) {
+            User currentUser = user.get();
+            builder = org.springframework.security.core.userdetails.User.withUsername(username);
+            builder.password(currentUser.getPassword());
+            builder.roles(currentUser.getRole());
+        } else {
+            throw new UsernameNotFoundException("User not found!");
+        }
+        return builder.build();
+
+    }
+}

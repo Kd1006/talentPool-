@@ -24,7 +24,6 @@ public class JobSeekerController {
 
         return new ResponseEntity<>(jobSeekerService.getAllJobSeekers(), HttpStatus.OK);
     }
-
     @GetMapping("/{id}")
     public ResponseEntity<JobSeeker> getJobSeekerById(@PathVariable Long id){
         return new ResponseEntity<>(jobSeekerService.getJobSeekerById(id), HttpStatus.OK);
@@ -38,6 +37,7 @@ public class JobSeekerController {
     public ResponseEntity<JobSeeker> deleteJobSeekerById(@PathVariable Long id) {
         jobSeekerService.deleteJobSeekersById(id);
         return new ResponseEntity<>(HttpStatus.OK);
+
     }
     @PutMapping("/update/{id}")
     public ResponseEntity<JobSeeker> updateJobSeekersById(@PathVariable Long id, @RequestBody JobSeeker jobSeeker){
@@ -49,6 +49,4 @@ public class JobSeekerController {
         return new ResponseEntity<>(jobSeekerService.getAllJobSeekersByYearsOfExperience(years_of_experience), HttpStatus.OK);
 
     }
-
-
 }

@@ -16,6 +16,7 @@ public class Employer {
     private String firstName;
     private String lastName;
     private String company_name;
+    private String description;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employer")
     @JsonIgnore
@@ -25,11 +26,12 @@ public class Employer {
 
     }
 
-    public Employer(String firstName, String lastName, String company_name) {
+    public Employer(String firstName, String lastName, String company_name, String description) {
 
         this.firstName = firstName;
         this.lastName = lastName;
         this.company_name = company_name;
+        this.description = description;
     }
 
     public Long getEmployerId() {
@@ -62,6 +64,14 @@ public class Employer {
 
     public void setCompany_name(String company_name) {
         this.company_name = company_name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<JobSeeker> getTalentPool() {

@@ -1,10 +1,9 @@
 package com.kdTalents.TalentPool.entity;
-
 import jakarta.persistence.*;
 
 @Entity
 @Table(name ="users")
-public class UserT {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
@@ -17,11 +16,10 @@ public class UserT {
     @Column(nullable = false)
     private String role;
 
-    public UserT() {
+    public User() {
     }
 
-    public UserT(long id, String username, String password, String role) {
-        this.id = id;
+    public User( String username, String password, String role) {
         this.username = username;
         this.password = password;
         this.role = role;

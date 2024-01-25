@@ -32,8 +32,8 @@ public class TalentPoolApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... strings) throws Exception {
-		Employer employer = new Employer("John" , "Doe", "Intel" );
-		Employer employer1 = new Employer("David" ,"Parker", "JPMorgan");
+		Employer employer = new Employer("John" , "Doe", "Intel","Hiring talents");
+		Employer employer1 = new Employer("David" ,"Parker", "JPMorgan", "Welcoming new team members. ");
 		employerRepository.save(employer);
 		employerRepository.save(employer1);
 

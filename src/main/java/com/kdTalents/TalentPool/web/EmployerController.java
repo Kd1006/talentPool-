@@ -21,12 +21,22 @@ public class EmployerController {
     public ResponseEntity<List<Employer>> getAllEmployers(){
         return new ResponseEntity<>(employerService.getAllEmployers(), HttpStatus.OK);
     }
+    @GetMapping({"/EmployerId"})
+    public ResponseEntity<Employer> getEmployersById(@PathVariable Long EmployerId){
+        return new ResponseEntity<>(employerService.getEmployersById(EmployerId), HttpStatus.OK);
+    }
     @PostMapping("/add")
     public ResponseEntity<Employer> addEmployer(@RequestBody Employer employer){
         return new ResponseEntity<>(employerService.addEmployer(employer), HttpStatus.OK);
     }
-//    @DeleteMapping("/delete/{id}")
-//    public ResponseEntity<Employer> deleteById(Long id){
-//        return new
+    @DeleteMapping("/delete")
+    public ResponseEntity<Employer> deleteEmployerById(Long EmployerId){
+         employerService.deleteEmployerById(EmployerId);
+         return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @PutMapping("/update/{EmployerId}")
+    public ResponseEntity<Employer> updateEmployerById(Long EmployerId, @RequestBody Employer employer){
+        return new ResponseEntity<>(employerService.updateEmployerById(EmployerId, employer), HttpStatus.OK);
+    }
 
     }
