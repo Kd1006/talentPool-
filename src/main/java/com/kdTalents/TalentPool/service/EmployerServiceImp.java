@@ -21,7 +21,7 @@ public class EmployerServiceImp implements EmployerService {
     @Override
     public List<Employer> getAllEmployers() {
 
-        return(List<Employer>) employerRepository.findAll();
+        return employerRepository.findAll();
     }
 
     @Override

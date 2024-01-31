@@ -41,9 +41,9 @@ public class TalentPoolApplication implements CommandLineRunner {
 		List<JobSeeker> jobSeekersList = Arrays.asList(
 				new JobSeeker("Tom" , "Adams" ,"Male", 29, "Back-end Developer", 5,"Java"),
 				new JobSeeker("Laura", "Black", "FEMALE", 35, "Software Engineer ", 7, "Java, Python, Team Player"),
-				new JobSeeker("Justin", "Bates", "Male", 32,"Software Developer", 6, "Flight Simulation, C#, C++"),
-				new JobSeeker("Conner", "Parker", "Male",26, "Facility Security Officer", 4, "Information System, Risk Management, Policy Analysis"),
-				new JobSeeker("Spencer","McCune", "Male", 32,"Flight Test Engineer", 10, "Data Monitoring, Data Analysis" ),
+				new JobSeeker("John", "Peter", "Male", 31,"Teacher", 6, "Literature"),
+				new JobSeeker("Conner", "Peter", "Male",26, "Facility Security Officer", 4, "Information System, Risk Management, Policy Analysis"),
+				new JobSeeker("Hover","Mne", "Male", 32,"Flight Test Engineer", 10, "Data Monitoring, Data Analysis" ),
 				new JobSeeker( "Morgan", "Stuart", "Female", 44, "Data Analyst", 12, "Research, Data Science, Game Theory"),
 				new JobSeeker("Lee", "Kim", "Female", 27, "Editor", 6,"Creative Writing"),
 				new JobSeeker("Dylan", "Hunter", "Male", 30, "Legislative Assistant", 8, "Policy Analysis, International Relationship"));

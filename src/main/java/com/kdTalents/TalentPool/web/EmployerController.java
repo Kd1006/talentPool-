@@ -1,10 +1,14 @@
 package com.kdTalents.TalentPool.web;
 
 
+import com.kdTalents.TalentPool.TalentPoolApplication;
 import com.kdTalents.TalentPool.entity.Employer;
 import com.kdTalents.TalentPool.service.EmployerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/employer")
 public class EmployerController {
+    private static final Logger logger = LoggerFactory.getLogger(EmployerController.class);
     private final EmployerService employerService;
 
     public EmployerController(EmployerService employerService) {
@@ -19,7 +24,9 @@ public class EmployerController {
     }
     @GetMapping("/employers")
     public ResponseEntity<List<Employer>> getAllEmployers(){
-        return new ResponseEntity<>(employerService.getAllEmployers(), HttpStatus.OK);
+
+
+        return new ResponseEntity<>(employerService.getAllEmployers(), HttpStatus.NO_CONTENT);
     }
     @GetMapping({"/EmployerId"})
     public ResponseEntity<Employer> getEmployersById(@PathVariable Long EmployerId){
