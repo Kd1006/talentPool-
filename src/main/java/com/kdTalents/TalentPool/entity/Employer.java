@@ -6,13 +6,15 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+
+
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 
 public class Employer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long EmployerId;
+    private Long Id;
     private String firstName;
     private String lastName;
     private String company_name;
@@ -35,11 +37,11 @@ public class Employer {
     }
 
     public Long getEmployerId() {
-        return EmployerId;
+        return Id;
     }
 
     public void setEmployerId(Long employerId) {
-        EmployerId = employerId;
+        Id = employerId;
     }
 
     public String getFirstName() {

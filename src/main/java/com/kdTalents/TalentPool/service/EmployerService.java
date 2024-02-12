@@ -10,10 +10,10 @@ public interface EmployerService {
     List<Employer> getAllEmployers();
     Employer addEmployer(Employer employer);
 
-    Employer getEmployersById(Long EmployerId);
-    Employer updateEmployerById(Long EmployerId, Employer employer);
+    Employer getEmployersById(Long Id);
+    Employer updateEmployerById(Long Id, Employer employer);
 
-    void deleteEmployerById(Long EmployerId);
+    void deleteEmployerById(Long Id);
 
 
 

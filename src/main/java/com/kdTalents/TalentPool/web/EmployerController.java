@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/v1/employer")
+@CrossOrigin(origins = "http://localhost:9090")
 public class EmployerController {
     private static final Logger logger = LoggerFactory.getLogger(EmployerController.class);
     private final EmployerService employerService;
@@ -28,7 +30,7 @@ public class EmployerController {
 
         return new ResponseEntity<>(employerService.getAllEmployers(), HttpStatus.NO_CONTENT);
     }
-    @GetMapping({"/EmployerId"})
+    @GetMapping("{Id}")
     public ResponseEntity<Employer> getEmployersById(@PathVariable Long EmployerId){
         return new ResponseEntity<>(employerService.getEmployersById(EmployerId), HttpStatus.OK);
     }
@@ -36,12 +38,12 @@ public class EmployerController {
     public ResponseEntity<Employer> addEmployer(@RequestBody Employer employer){
         return new ResponseEntity<>(employerService.addEmployer(employer), HttpStatus.OK);
     }
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{Id}")
     public ResponseEntity<Employer> deleteEmployerById(Long EmployerId){
          employerService.deleteEmployerById(EmployerId);
          return new ResponseEntity<>(HttpStatus.OK);
     }
-    @PutMapping("/update/{EmployerId}")
+    @PutMapping("/update/{Id}")
     public ResponseEntity<Employer> updateEmployerById(Long EmployerId, @RequestBody Employer employer){
         return new ResponseEntity<>(employerService.updateEmployerById(EmployerId, employer), HttpStatus.OK);
     }

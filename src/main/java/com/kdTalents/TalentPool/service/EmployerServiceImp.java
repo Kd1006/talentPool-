@@ -25,9 +25,9 @@ public class EmployerServiceImp implements EmployerService {
     }
 
     @Override
-    public Employer getEmployersById(Long EmployerId){
-        return employerRepository.findById(EmployerId)
-                .orElseThrow(()-> new ResourceNotFoundException("Employer with id " + EmployerId + "not found"));
+    public Employer getEmployersById(Long Id){
+        return employerRepository.findById(Id)
+                .orElseThrow(()-> new ResourceNotFoundException("Employer with id " + Id + "not found"));
 
 
     }
@@ -39,12 +39,12 @@ public class EmployerServiceImp implements EmployerService {
     }
 
     @Override
-    public void  deleteEmployerById(Long EmployerId) {
-         employerRepository.deleteById(EmployerId);
+    public void  deleteEmployerById(Long Id) {
+         employerRepository.deleteById(Id);
 
     }
-    public Employer updateEmployerById(Long EmployerId, @RequestBody Employer employer){
-        Employer existingEmployers = getEmployersById(EmployerId);
+    public Employer updateEmployerById(Long Id, @RequestBody Employer employer){
+        Employer existingEmployers = getEmployersById(Id);
         existingEmployers.setFirstName(employer.getFirstName());
         existingEmployers.setLastName((employer.getFirstName()));
         existingEmployers.setCompany_name(employer.getCompany_name());

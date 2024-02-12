@@ -9,15 +9,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/v1/jobSeeker")
+//@CrossOrigin(origins = "http://localhost:9090")
 
 public class JobSeekerController {
     private final JobSeekerService jobSeekerService;
 
     public JobSeekerController(JobSeekerService jobSeekerService) {
         this.jobSeekerService = jobSeekerService;
-
+    }
+    @GetMapping("/hello")
+    public ResponseEntity<String> helloWorld() {
+        return new ResponseEntity<>("Hello World!", HttpStatus.OK);
     }
     @GetMapping("/jobSeekers")
     public ResponseEntity<List<JobSeeker>> getAllJobSeekers(){

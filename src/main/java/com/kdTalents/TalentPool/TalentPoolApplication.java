@@ -34,21 +34,22 @@ public class TalentPoolApplication implements CommandLineRunner {
 	public void run(String... strings) throws Exception {
 		Employer employer = new Employer("John" , "Doe", "Intel","Hiring talents");
 		Employer employer1 = new Employer("David" ,"Parker", "JPMorgan", "Welcoming new team members. ");
+		Employer employer3 = new Employer("Sarah", "Kim", "BN", "Hiring");
 		employerRepository.save(employer);
 		employerRepository.save(employer1);
 
 
-		List<JobSeeker> jobSeekersList = Arrays.asList(
+		List<JobSeeker> jobSeekers = Arrays.asList(
 				new JobSeeker("Tom" , "Adams" ,"Male", 29, "Back-end Developer", 5,"Java"),
 				new JobSeeker("Laura", "Black", "FEMALE", 35, "Software Engineer ", 7, "Java, Python, Team Player"),
 				new JobSeeker("John", "Peter", "Male", 31,"Teacher", 6, "Literature"),
-				new JobSeeker("Conner", "Peter", "Male",26, "Facility Security Officer", 4, "Information System, Risk Management, Policy Analysis"),
+				new JobSeeker("Pan", "Peter", "Male",26, "Facility Security Officer", 4, "Information System, Risk Management, Policy Analysis"),
 				new JobSeeker("Hover","Mne", "Male", 32,"Flight Test Engineer", 10, "Data Monitoring, Data Analysis" ),
 				new JobSeeker( "Morgan", "Stuart", "Female", 44, "Data Analyst", 12, "Research, Data Science, Game Theory"),
 				new JobSeeker("Lee", "Kim", "Female", 27, "Editor", 6,"Creative Writing"),
 				new JobSeeker("Dylan", "Hunter", "Male", 30, "Legislative Assistant", 8, "Policy Analysis, International Relationship"));
 
-		jobSeekerRepository.saveAll(jobSeekersList);
+		jobSeekerRepository.saveAll(jobSeekers);
 
 		jobSeekerRepository.
 				findAll().forEach(JobSeeker-> logger.info(JobSeeker.getYears_of_experience() + " " + JobSeeker.getFirstname()));
